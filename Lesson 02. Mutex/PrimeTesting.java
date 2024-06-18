@@ -2,7 +2,7 @@
 // This program creates 10 threads, each of which accesses 
 // a shared counter and tests whether the counter value is prime.
 
-import java.util.concurrent.locks.ReentrantLock; 
+import java.util.concurrent.locks.ReentrantLock;  
 
 public class PrimeTesting {
     static final int MAX_NUMBER_TO_TEST = 100;
@@ -33,7 +33,7 @@ public class PrimeTesting {
 
                 // simulate a delay
                 try {
-                    Thread.sleep(0); // sleep for x milliseconds
+                    Thread.sleep(10); // sleep for x milliseconds
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -50,6 +50,7 @@ public class PrimeTesting {
     static class PrimeTestingTask implements Runnable {
         int threadId = 0;
         static int nextId = 0;
+        
         PrimeTestingTask() {
             threadId = nextId++;
         }
