@@ -13,6 +13,7 @@ class Go implements Runnable {
   public Go() {
     threadNumber = threadCount++;
   } ;
+
   public void run() {
     while(countDown-- > 0) {
       System.out.print("#" + threadNumber + "(" + 

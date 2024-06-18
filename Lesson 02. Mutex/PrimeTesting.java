@@ -18,6 +18,7 @@ public class PrimeTesting {
     static class Counter {
         private int count = 0;
         ReentrantLock lock = new ReentrantLock();
+
         public Counter(int count) {
             this.count = count;
         }
@@ -32,7 +33,7 @@ public class PrimeTesting {
 
                 // simulate a delay
                 try {
-                    Thread.sleep(10); // sleep for 10 milliseconds
+                    Thread.sleep(0); // sleep for x milliseconds
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -60,23 +61,23 @@ public class PrimeTesting {
                 
             if (isPrime(val)) {
                     System.out.println("#" + threadId + ": Prime number: " + val);
-                }
-                val = counter.getAndIncrement(); // get next value
             }
-        }
-
-        private boolean isPrime(int number) {
-            if (number <= 1) {
-                return false;
-            }
-            for (int i = 2; i <= Math.sqrt(number); i++) {
-                if (number % i == 0) {
-                    return false;
-                }
-            }
-            return true;
+            val = counter.getAndIncrement(); // get next value
         }
     }
-    // end of PrimeTestingTask class
+
+    private boolean isPrime(int number) {
+        if (number <= 1) {
+            return false;
+        }
+        for (int i = 2; i <= Math.sqrt(number); i++) {
+            if (number % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+// end of PrimeTestingTask class
     
 }
