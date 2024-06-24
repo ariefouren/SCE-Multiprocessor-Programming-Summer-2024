@@ -7,6 +7,9 @@ public class TreeLock {
 
     // Constructor. 
     // Create a tournament tree of Peterson locks for numProcesses processes
+    // The index of the root node is 1
+    // The index of the left child of node i is 2 * i
+    // The index of the right child of node i is 2 * i + 1
     public TreeLock(int numProcesses) { // numProcesses is a power of 2
         // Calculate the depth of the tree
         this.depth = 
@@ -15,10 +18,7 @@ public class TreeLock {
         // Create an array of Peterson locks
         this.tree = 
         // Initialize each node in the tree with a Peterson lock
-        // The index of the root node is 1
-        // The index of the left child of node i is 2 * i
-        // The index of the right child of node i is 2 * i + 1
-        for (int i = 1; i < numNodes; i++) {
+        for (...) {
             tree[i] = new PetersonMutex();
         }
     }
